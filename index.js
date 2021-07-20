@@ -1,3 +1,10 @@
+// TODO include packages needed for this application 
+
+const inquirer = require("inquirer");
+const fs = require('fs');
+const path = require("path");
+
+//Create an array of questions for Employees
 const employees = [];
 
 const managerQuestions = [
