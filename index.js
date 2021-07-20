@@ -5,32 +5,64 @@ const fs = require('fs');
 const path = require("path");
 
 //Create an array of questions for Employees
-const employees = [];
+const employees = [
+    {
+        type: "input",
+        message: "what is the employee's name?",
+        name: "name"
+    },
+    {
+        type: "list",
+        message: "what is the role of the employee?",
+        options: ["Manager","Engineer","Intern"],
+        name: "role"
+    },
+    {
+        type: "input",
+        message: "what is the employee's ID?",
+        name: "id" 
+    },
+    {
+        type: "input",
+        message: "what is the team employee's email?",
+        name: "email"
+    },
+];
+
+//Create an array of questions for Manager
 
 const managerQuestions = [
+    
     {
         type: "input",
-        message: "what is the team manager's name?",
-        name: "name"
-    }
-
-];
-
-const internQuestion = [
-    {
-        type: "input",
-        message: "What is the team inter's name?",
-        name: "name"
+        message: "what is the manager's office number",
+        name: "Office number"
     }
 ];
+
+//Create an array of questions for Engineer
 
 const engineerQuestions = [
+   
     {
         type: "input",
-        message: "What is the team's engineer's name?", 
-        name: "name"
+        message: "what is the team engineer's GitHub username?",
+        name: "GitHub"
     }
 ];
+
+//Create an array of questions for Intern
+
+const internQuestion = [
+    
+    {
+        type: "input",
+        message: "what is the team inter's school name?",
+        name: "school"
+    }
+];
+
+
 
 const whatsNextQuestions = [
     {
