@@ -3,121 +3,149 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 const path = require("path");
+const Manager = require("./library/Manager");
+const Engineer = require("./library/Engineer");
+const Intern = require("./library/Intern");
+const { generate } = require("rxjs");
+
+const allEmployees = [];
 
 //Create an array of questions for Employees
 const employees = [
     {
         type: "input",
-        message: "what is the employee's name?",
-        name: "name"
-    },
-    {
-        type: "list",
-        message: "what is the role of the employee?",
-        options: ["Manager","Engineer","Intern"],
-        name: "role"
-    },
-    {
-        type: "input",
-        message: "what is the employee's ID?",
+        message: "What is the employee ID?",
         name: "id" 
     },
     {
         type: "input",
-        message: "what is the team employee's email?",
+        message: "What is the employee email?",
         name: "email"
     },
 ];
 
-//Create an array of questions for Manager
+//Create a question for Manager
 
 const managerQuestions = [
-    
     {
         type: "input",
-        message: "what is the manager's office number",
-        name: "Office number"
+        message: "What is the Team Manager's name?",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "What is the Manager's office number",
+        name: "officeNumber"
     }
 ];
 
-//Create an array of questions for Engineer
+//Create a question for Engineer
 
 const engineerQuestions = [
-   
     {
         type: "input",
-        message: "what is the team engineer's GitHub username?",
-        name: "GitHub"
+        message: "What is the Engineer's name?",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "What is the team Engineer's GitHub username?",
+        name: "github"
     }
 ];
 
-//Create an array of questions for Intern
+//Create a question for Intern
 
 const internQuestion = [
-    
     {
         type: "input",
-        message: "what is the team inter's school name?",
+        message: "What is the Intern's name?",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "What is the team Intern's school name?",
         name: "school"
     }
 ];
 
-
+//Create an array of WhatNextQuestions
 
 const whatsNextQuestions = [
     {
-        type: "input",
+        type: "list",
         message: "Which type of team member would you like to add?",
-        name: "list",
-        options: []
+        choices: ["Intern", "Engineer", "Finish"],
+        name: "addEmployee",
     }
 ];
 
-const askforInternInfo = () => {
+const askForInternInfo = () => {
 
     return inquirer
-        .prompt( internQuestions )
+        .prompt(internQuestion.concat(employees))
         .then((internAnswers) => {
 
             //THEN we need to create a new Intern object with that data
 
             //Push the new intern to the list of employees
-
+            const intern = new Intern(internAnswers.id, internAnswers.name,
+                internAnswers.email, internAnswers.school);
+            allEmployees.push(intern);
             return askWhatsNext();
 
         })
 
 }
 
+const askForEngineerInfo = () => {
+    return inquirer
+        .prompt(engineerQuestions.concat(employees))
+        .then((engineerAnswers) => {
+            const engineer = new Engineer(engineerAnswers.id, engineerAnswers.name,
+                engineerAnswers.email, engineerAnswers.github);
+            allEmployees.push(engineer);
+            return askWhatsNext();
+        })
+}
+
+
 const askWhatsNext = () => {
 
-    return inquire
-        .prompt(whatsNextQuestion)
+    return inquirer
+        .prompt(whatsNextQuestions)
         .then((whatsNextAnswer) => {
-
             // THEN then to use their answer to decide what to do next.
-            return askforInternInfo();
-
+            if (whatsNextAnswer.addEmployee == 'Intern') {
+                return askForInternInfo();
+            }
+            else if (whatsNextAnswer.addEmployee == 'Engineer') {
+                return askForEngineerInfo();
+            }
+            console.log("Done collection questions! Generating result!");
+            return; // finish
         });
 };
 
 //'inquire.prompt()' the user of manager information using our 'managerQuestion'
 inquirer
-    .prompt(managerQuestions)
-    .then((managerAnswer) => {
+    .prompt(managerQuestions.concat(employees))
+    .then((managerAnswers) => {
 
         //THEN we need to create a new Manger object with that data
         //const manager = new Manager (managerAnswers)
 
         //AND THEN new to ask the users what they want to do next. ( 'inquire.prompt()' with whatsNextQuestion)
+        const manager = new Manager(managerAnswers.id, managerAnswers.name, 
+            managerAnswers.email, managerAnswers.officeNumber);
+        allEmployees.push(manager);
         return askWhatsNext();
-
 
     })
     .then(() => {
 
-        //User employee objects to create HTML page and writeit to file
-    
+        //User employee objects to create HTML page and write it to file
+        console.log(allEmployees);
     })
     .catch((error) => {
         if (error.isTtyError) {
