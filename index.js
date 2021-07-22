@@ -6,6 +6,7 @@ const path = require("path");
 const Manager = require("./library/Manager");
 const Engineer = require("./library/Engineer");
 const Intern = require("./library/Intern");
+const generateHtml = require("./library/generateHtml");
 const { generate } = require("rxjs");
 
 const allEmployees = [];
@@ -127,6 +128,13 @@ const askWhatsNext = () => {
         });
 };
 
+function writeToFile(fileName, answers) {
+    const html = generateHtml(answers);
+    fs.writeFile(fileName, html, (err) =>
+        err ? console.error(err) : console.log("Pass")
+    );
+}
+
 //'inquire.prompt()' the user of manager information using our 'managerQuestion'
 inquirer
     .prompt(managerQuestions.concat(employees))
@@ -145,9 +153,14 @@ inquirer
     .then(() => {
 
         //User employee objects to create HTML page and write it to file
-        console.log(allEmployees);
+
+        const fileName = path.join(__dirname, "dist/index.html");
+        writeToFile(fileName, allEmployees);
+
+        // console.log(allEmployees);
     })
     .catch((error) => {
+        console.log(error);
         if (error.isTtyError) {
         //Prompt couldn't be rendered in the current environment 
         } else {

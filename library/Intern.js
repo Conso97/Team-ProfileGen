@@ -6,7 +6,7 @@ class Intern extends Employee {
 
         super(id, name, email);
 
-        this.officeNumber = school;
+        this.school = school;
     }
 
 }
