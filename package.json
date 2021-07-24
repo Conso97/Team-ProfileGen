@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "script": {
+    "scripts": {
         "test": "jest"
     },
     "keywords": [],
@@ -11,5 +11,8 @@
     "license": "ISC",
     "dependencies": {
         "inquirer": "^8.1.1"
+    },
+    "devDependencies": {
+        "jest": "^27.0.6"
     }
 }
