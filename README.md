@@ -21,9 +21,12 @@ In this activity I learnt:
 
 * How to use Jest for running the unit test 
 
+# Video Demo 
+https://drive.google.com/file/d/1OZ5G3ZhXHt0h5NpOkf_E0gqcusCBvNax/view
+
+
 https://conso97.github.io/Team-ProfileGen/
 
-<video width="320" height="240" autoplay muted>
-  <source src="Team-Website.mp4" type="video/mp4">
-  <source src="Team-Website.mp4" type="video/mp4">
-</video>
+<img id="styledImage"
+    src="Team-Website.jpg" width="70%" height="70%"
+alt="Team-Website"
