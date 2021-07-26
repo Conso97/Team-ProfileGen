@@ -23,6 +23,7 @@ In this activity I learnt:
 
 https://conso97.github.io/Team-ProfileGen/
 
-<img id="styledImage"
-    src="" width="70%" height="70%"
-alt="Team-ProfileGen"
+<video width="320" height="240" autoplay muted>
+  <source src="Team-Website.mp4" type="video/mp4">
+  <source src="Team-Website.mp4" type="video/mp4">
+</video>
