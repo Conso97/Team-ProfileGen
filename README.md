@@ -29,4 +29,5 @@ https://conso97.github.io/Team-ProfileGen/
 
 <img id="styledImage"
     src="Team-Website.jpg" width="70%" height="70%"
-alt="Team-Website"
+alt="Team-ProfileGen"
+/>
