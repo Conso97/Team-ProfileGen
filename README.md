@@ -3,7 +3,7 @@ A Node.js command-line application that takes in information about employees on 
 
 # Motivation for this project
 
-learn how to use the Node.js command line to take in information about employees and have it generate an HTML webpage that displays summaries for each person. As well as learning how to write a unit test for every part of the code and ensure that it passes each test.
+Learn how to use the Node.js command line to take in information about employees and have it generate an HTML webpage that displays summaries for each person. As well as learn how to write a unit test for every part of the code and ensure that it passes each test.
 
 # Reason for this project 
 

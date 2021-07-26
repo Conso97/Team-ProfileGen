@@ -1,7 +1,12 @@
 #text {
     text-align: center;
-}
+    color:rgb(90, 86, 86);
+    border-style: groove;
+    margin-right: 100px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    height: 50px;
+    width: 90%;
 
-#role {
-    text-align: center;
+
 }
