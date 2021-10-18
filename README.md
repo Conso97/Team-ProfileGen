@@ -15,11 +15,11 @@ In this activity I learnt:
 
 * The step by step breaking down method of the acceptance criteria on HW assignment and the importance of commenting especially after the code has been erased and you cannot remember what was on the code line previously.
 
-* The importance of stackoverflow when trying to figure out what the inspect mistake made means/wants you to correct what you need fixed. 
+* The importance of stackoverflow when trying to figure out what the inspect mistake made means/wants you to correct and what you need fixed. 
 
 * How to use inquirer for collecting input from the user. 
 
-* How to use Jest for running the unit test 
+* How to use Jest for running the unit test. 
 
 # Video Demo 
 https://drive.google.com/file/d/1OZ5G3ZhXHt0h5NpOkf_E0gqcusCBvNax/view
@@ -31,3 +31,8 @@ https://conso97.github.io/Team-ProfileGen/
     src="Team-Website.jpg" width="70%" height="70%"
 alt="Team-ProfileGen"
 />
+
+# Contact 
+
+* Name: Consolata Njeri
+* Email: Conso4u@gmail.com
